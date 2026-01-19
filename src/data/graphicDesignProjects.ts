@@ -81,23 +81,23 @@ export const graphicDesignProjects: GraphicDesignProject[] = [
     featured: false,
     tags: ['graphic', 'text-effect', 'design']
   },
-  {
-    id: 'poster-1',
-    title: 'Ishita Birthday - PDF Design',
-    description: 'Professional poster design with print-ready specifications.',
-    category: 'poster',
-    images: ['/designs/0C2A8124.JPG'],
-    pdfUrl: '/designs/ishita birthday.pdf',
-    year: 2024,
-    featured: true,
-    tags: ['poster', 'birthday', 'event']
-  },
+  // {
+  //   id: 'poster-1',
+  //   title: 'Ishita Birthday - PDF Design',
+  //   description: 'Professional poster design with print-ready specifications.',
+  //   category: 'poster',
+  //   images: ['/designs/0C2A8124.JPG'],
+  //   pdfUrl: '/designs/ishita birthday.pdf',
+  //   year: 2024,
+  //   featured: true,
+  //   tags: ['poster', 'birthday', 'event']
+  // },
   {
     id: 'photography-1',
     title: 'Professional Photography Set 1',
     description: 'Professional photography showcase from cinematography work.',
     category: 'graphic-design',
-    images: ['/designs/0C2A8144.JPG'],
+    images: ['/designs/Honey.JPG'],
     year: 2024,
     featured: false,
     tags: ['photography', 'cinema', 'production']
@@ -107,7 +107,7 @@ export const graphicDesignProjects: GraphicDesignProject[] = [
     title: 'Professional Photography Set 2',
     description: 'High-quality photography from professional shoots.',
     category: 'graphic-design',
-    images: ['/designs/0C2A8181.JPG'],
+    images: ['/designs/Honey2.JPG'],
     year: 2024,
     featured: false,
     tags: ['photography', 'cinema', 'production']
@@ -117,7 +117,7 @@ export const graphicDesignProjects: GraphicDesignProject[] = [
     title: 'Professional Photography Set 3',
     description: 'Professional cinematography and photography work.',
     category: 'graphic-design',
-    images: ['/designs/0C2A8746.JPG'],
+    images: ['/designs/Honey3.JPG'],
     year: 2024,
     featured: false,
     tags: ['photography', 'cinema', 'production']
