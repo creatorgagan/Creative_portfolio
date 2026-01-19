@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ContactFormData, SocialLink } from '../types';
+import { sendContactEmail, initEmailJS, sendConfirmationEmail } from '../../services/emailService';
 
 interface ContactProps {
   onSubmit: (data: ContactFormData) => Promise<void>;
@@ -30,6 +31,11 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    initEmailJS();
+  }, []);
 
   const projectTypes = [
     'Commercial Video',
@@ -96,11 +102,20 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
     setSubmitStatus('idle');
 
     try {
-      await onSubmit(formData);
+      // Send email to your Gmail
+      await sendContactEmail(formData);
+      
+      // Send confirmation email to user
+      await sendConfirmationEmail(formData);
+      
       setSubmitStatus('success');
       setFormData({ name: '', email: '', projectType: '', message: '' });
       setErrors({});
+      
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -120,13 +135,13 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Let's Create Something Amazing Together
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-800 font-semibold max-w-3xl mx-auto">
             Ready to bring your vision to life? I'd love to hear about your project and discuss how we can create compelling visual content that resonates with your audience.
           </p>
         </div>
@@ -139,7 +154,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
                   Full Name *
                 </label>
                 <input
@@ -159,7 +174,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                   Email Address *
                 </label>
                 <input
@@ -179,7 +194,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
 
               {/* Project Type Field */}
               <div>
-                <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="projectType" className="block text-sm font-semibold text-gray-900 mb-2">
                   Project Type *
                 </label>
                 <select
@@ -202,7 +217,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
                   Project Details *
                 </label>
                 <textarea

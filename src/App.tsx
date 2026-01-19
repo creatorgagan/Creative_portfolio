@@ -10,6 +10,7 @@ import StructuredData from './components/SEO/StructuredData';
 import VideoGalleryWithFilters from './components/VideoGallery/VideoGalleryWithFilters';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 import YouTubeSection from './components/YouTube/YouTubeVideosSection';
+import ScrollEffectsProvider from './components/ScrollEffectsProvider';
 
 // Lazy-loaded components (code splitting)
 const About = lazy(() => import('./components/About/About'));
@@ -305,38 +306,40 @@ function MainContent() {
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          {/* Admin routes */}
-          <Route 
-            path="/admin/login" 
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <Login />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/admin/dashboard" 
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <AdminDashboard />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/admin/clients" 
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <TestClientManager />
-              </Suspense>
-            } 
-          />
-          
-          {/* Public routes */}
-          <Route path="/" element={<MainContent />} />
-        </Routes>
-      </div>
+      <ScrollEffectsProvider>
+        <div className="App">
+          <Routes>
+            {/* Admin routes */}
+            <Route 
+              path="/admin/login" 
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Login />
+                </Suspense>
+              } 
+            />
+            <Route 
+              path="/admin/dashboard" 
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <AdminDashboard />
+                </Suspense>
+              } 
+            />
+            <Route 
+              path="/admin/clients" 
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <TestClientManager />
+                </Suspense>
+              } 
+            />
+            
+            {/* Public routes */}
+            <Route path="/" element={<MainContent />} />
+          </Routes>
+        </div>
+      </ScrollEffectsProvider>
     </Router>
   );
 }
