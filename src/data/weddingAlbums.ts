@@ -11,7 +11,7 @@ export interface WeddingAlbum {
 
 export const weddingAlbums: WeddingAlbum[] = [
   {
-    id: 'harsh-honey-wedding',
+    id: 'Album Design and Clients',
     clientName: 'Harsh & Honey',
     eventType: 'wedding',
     images: [

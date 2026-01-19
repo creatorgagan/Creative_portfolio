@@ -95,19 +95,19 @@ const Hero: React.FC<HeroComponentProps> = ({
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight text-white" style={{ textShadow: '0 6px 16px rgba(0, 0, 0, 0.95), 0 3px 6px rgba(0, 0, 0, 0.8)', fontWeight: 800, letterSpacing: '-0.02em' }}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6)' }}>
             <span className="block">{name}</span>
           </h1>
           
           <p className={`text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-white transition-all duration-1000 transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`} style={{ transitionDelay: '200ms', textShadow: '0 5px 14px rgba(0, 0, 0, 0.9), 0 2px 5px rgba(0, 0, 0, 0.7)', fontWeight: 700, letterSpacing: '-0.01em' }}>
+          }`} style={{ transitionDelay: '200ms', textShadow: '0 3px 10px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.5)' }}>
             {tagline}
           </p>
           
           <p className={`text-lg sm:text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto leading-relaxed transition-all duration-1000 transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`} style={{ transitionDelay: '400ms', textShadow: '0 4px 12px rgba(0, 0, 0, 0.9)', fontWeight: 600, letterSpacing: '0.3px' }}>
+          }`} style={{ transitionDelay: '400ms', textShadow: '0 2px 8px rgba(0, 0, 0, 0.7)' }}>
             {description}
           </p>
         </div>

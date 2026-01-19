@@ -135,13 +135,13 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Let's Create Something Amazing Together
           </h2>
-          <p className="text-xl text-gray-800 font-semibold max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Ready to bring your vision to life? I'd love to hear about your project and discuss how we can create compelling visual content that resonates with your audience.
           </p>
         </div>
@@ -154,7 +154,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name *
                 </label>
                 <input
@@ -174,7 +174,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address *
                 </label>
                 <input
@@ -194,7 +194,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
 
               {/* Project Type Field */}
               <div>
-                <label htmlFor="projectType" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
                   Project Type *
                 </label>
                 <select
@@ -217,7 +217,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks, personalInfo }
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Project Details *
                 </label>
                 <textarea
