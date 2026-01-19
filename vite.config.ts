@@ -26,16 +26,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Manual chunk splitting for better caching
-        manualChunks: {
-          // Vendor chunks
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'video-vendor': ['react-player'],
-          // Component chunks
-          'admin-components': [
-            './src/components/Admin/ClientManager/ClientManager.tsx',
-            './src/components/Admin/ClientManager/ClientList.tsx',
-            './src/components/Admin/ClientManager/ClientDetails.tsx',
-          ],
+        manualChunks: (id) => {
+          if (id.includes('node_modules/react')) {
+            return 'react-vendor'
+          }
+          if (id.includes('node_modules/react-player')) {
+            return 'video-vendor'
+          }
+          if (id.includes('Admin/ClientManager')) {
+            return 'admin-components'
+          }
         },
         // Optimize chunk file names
         chunkFileNames: 'assets/js/[name]-[hash].js',
