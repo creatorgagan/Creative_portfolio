@@ -51,7 +51,7 @@ const WeddingAlbums: React.FC<WeddingAlbumsProps> = ({ albums }) => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            💒 Harsh & Honey Wedding
+            💒 My album works
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Beautiful moments captured from the wedding celebration
