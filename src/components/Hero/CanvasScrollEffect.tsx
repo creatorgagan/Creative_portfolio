@@ -25,8 +25,10 @@ const CanvasScrollEffect: React.FC = () => {
 
     // Set canvas size
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      if (canvas.parentElement) {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+      }
     };
 
     resizeCanvas();
@@ -128,7 +130,7 @@ const CanvasScrollEffect: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-screen pointer-events-none z-0 opacity-30"
+      className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-30"
       style={{
         background: 'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(20,20,20,0.05) 100%)',
       }}
